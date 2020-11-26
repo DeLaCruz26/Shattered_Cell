@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   resources :customers do 
     resources :repairs, only: [:index]
   end
+
+  get '/signin' => 'sessions#new', as: 'login'
+  post '/signin' => 'sessions#create'
+  post '/logout' => 'sessions#destroy', as: 'logout'
 end
