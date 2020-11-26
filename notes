@@ -1,0 +1,32 @@
+Shattered Cell
+
+Tech
+    - has many repairs
+    - has many customers through repairs
+    - name
+    - password
+    - admin
+
+Customer
+    - has many repairs
+    - has many techs through repairs
+    - username
+    - password
+    - device
+
+Repair
+    - belongs to tech
+    - belongs to customer
+    - repair time
+    - repair cost
+    - repair description
+
+
+resources :techs do 
+    resources :repairs
+end
+
+resources :customers do 
+    resources :repairs
+ends
+
