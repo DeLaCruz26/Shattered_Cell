@@ -1,0 +1,30 @@
+<main class="paper-image">
+
+  <div class="form-container">
+    <div class="form-header">
+      <h1>Login with an existing account</h1>
+    </div>
+
+    <%= render partial: 'partials/flash_messages' %>
+    
+    <%= form_tag('/login', method: :post) do %>
+
+      <div class="form-input-container">
+        <%= label_tag :name, "Username" %>
+        <%= select_tag 'user_name', options_from_collection_for_select(@users, :id, :username), class: "form-input form-select" %>
+      </div>
+
+      <div class="form-input-container">
+        <%= label_tag :password %>
+        <%= password_field_tag :password, nil, class: "form-input" %>
+      </div>
+
+      <div class="form-input-container">
+        <%= submit_tag("Login", class: "button login") %>
+      </div>
+
+      <%= render  partial: 'partials/omniauth', locals: {phrase: "Login"} %>
+    <% end %> 
+  </div>
+
+</main>
