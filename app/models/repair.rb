@@ -1,8 +1,7 @@
 class Repair < ApplicationRecord
-    belongs_to :tech
-    belongs_to :customer
+    belongs_to :user
+    has_many :devices
+    has_many :users, through: :devices
 
-    validates_datetime :repair_time, presence: true
-    validates :repair_cost, numericality: { only_integer: true }
-    validates :repair_desc, length: { minimum: 5 }
+
 end

@@ -10,8 +10,14 @@
   </head>
 
   <body>
-    <%= render partial: "partials/navbar" %> 
+  <% if logged_in? %>
+    <p>Welcome <%= current_user.username %></p
+    <%= button_to "Schedule a Repair", new_user_repair_path(@user, @repair), method: :get %>
+    <br><br>
+    <div class="logout-button">
+      <%= button_to "Logout", logout_path, method: :delete %>
+    </div>
+  <% end %>
     <%= yield %>
-    <%= render partial: "partials/footer" %>
   </body>
 </html>

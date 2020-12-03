@@ -1,29 +1,18 @@
 class SessionsController < ApplicationController
-    def new
-        @customer = Customer.new
-    end
-
+    
     def create
-        @customer = Customer.find_by_id(params[:customer_name])
-        
-        if @customer && @customer.authenticate(params[:password])
-          session[:user_id] = @customer.id
-          redirect_to customer_path(@customer)
+        @user = User.find_by(username: params[:user][:username])
+        if @user && @user.authenticate(params[:user][:password])
+          session[:user_id] = @user.id
+          redirect_to user_path(@user)
         else
-          flash[:message] = "Incorrect Password"
-          all_customers
-          render :new
+          flash[:message] = "Incorrect Password"    
+          redirect_to '/login'
         end
-      end
+    end
     
-      def destroy
-        session.delete
+    def destroy
+        session.delete :user_id
         redirect_to root_path
-      end
-    
-      private
-    
-      def all_customers
-        @customer = Customer.all
-      end
+    end
 end
