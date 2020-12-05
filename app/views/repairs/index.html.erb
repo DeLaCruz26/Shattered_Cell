@@ -1,1 +1,10 @@
-<h1>All repairs</h1>
+<h1>Scheduled Repairs</h1>
+
+<% @repairs.each do |r| %>
+
+    <h2><%= link_to r.repair_time, repair_path(r.id) %> - <%= r.device.name %></h2>
+    <%= link_to "Write a review", new_repair_review_path %>
+<% end %>
+<div>
+    <p><%= r.repair_description %></p>
+</div>

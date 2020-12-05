@@ -1,0 +1,14 @@
+<h1><%= @repair.repair_time %></h1>
+
+<h2><%= @repair.device_name %></h2>
+<div>
+    <p><%= @repair.repair_description %></p>
+</div>
+
+<h3>Scheduled by: <%= link_to @repair.user, user_path(@user) %></h3>
+
+<%= link_to "Edit #{@repair.repair_time}", edit_repair_path(@repair) if @repair.user == current_user %>
+
+<br><br>
+
+<%= link_to "See all Reviews", repair_reviews_path(@repair) %>

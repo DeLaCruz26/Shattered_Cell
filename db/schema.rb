@@ -10,25 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_03_004753) do
+ActiveRecord::Schema.define(version: 2020_12_04_224509) do
 
   create_table "devices", force: :cascade do |t|
     t.string "name"
     t.string "model"
-    t.integer "user_id"
-    t.integer "repair_id"
   end
 
   create_table "repairs", force: :cascade do |t|
     t.datetime "repair_time"
     t.text "repair_description"
+    t.integer "user_id"
+    t.integer "device_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "stars"
+    t.string "title"
+    t.string "content"
+    t.integer "user_id"
+    t.integer "repair_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
     t.string "password_digest"
-    t.boolean "admin", default: false
   end
 
 end

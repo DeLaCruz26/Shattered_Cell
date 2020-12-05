@@ -1,0 +1,29 @@
+<%= render partial: 'errors', locals: {object: @repair} %>
+<% form_for(@repair) do |f| %>
+    <div>
+        <%= f.label :repair_time %>
+        <%= f.date_select :repair_time, :order => [:day, :month, :year] %>
+    </div>
+    <div>
+        <%= f.label :repair_description %>
+        <%= f.text_field :repair_description %>
+    </div>
+    <br>
+    
+    <p> Select a Device to repair: </p>
+    <div>
+        <%= f.collection_select :device_id, Device.all, :id, :name, include_blank: 'Select One' %>
+    </div>
+
+    <p>Or add a new Device: </p>
+    <div>
+        <%= f.fields_for :device do |d| %>
+            <%= d.label :name %>
+            <%= d.text_field :name %>
+            <%= d.label :model %>
+            <%= d.text_field :model %>
+        <% end %>
+    </div>
+    <br>
+    <%= f.submit "Schedule Repair" %>
+<% end %>

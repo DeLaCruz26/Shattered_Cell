@@ -1,0 +1,31 @@
+<%= display_header(@review) %>
+
+<%= render partial: 'layouts/errors', locals: {object: @review} %>
+
+<%= form_for(@review) do |f| %>
+    <% if params[:repair_id] %>
+        <%= f.hidden_field :repair_id %>
+    <% else %>
+        <div>
+            <%= f.label :repair_id, Select an Repair %>
+            <%= f.collection_select :repair_id, Repair.aplha, :id, :time_and_device, include_blank: true %>
+        </div>
+    <% end %>
+    <div>
+        <%= f.label :stars %>
+        <%= f.number_field :stars, min:0, max:5 %>
+    </div>
+    <br>
+    <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
+    <br>
+    <div>
+        <%= f.label :content %>
+        <%= f.text_field :content, size: "25x10" %>
+    </div>
+    <br>
+
+    <%= f.submit %>
+<% end %>

@@ -3,6 +3,8 @@ class CreateRepairs < ActiveRecord::Migration[6.0]
     create_table :repairs do |t|
       t.datetime :repair_time
       t.text :repair_description
+      t.integer :user_id
+      t.integer :device_id
     end
   end
 end

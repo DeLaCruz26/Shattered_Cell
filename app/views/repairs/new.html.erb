@@ -1,11 +1,3 @@
-<h1>New Repair</h1>
+<h1>Schedule New Repair</h1>
 
-<%= form_for(@repair) do |f| %>
-    <%= f.label :repair_time %>
-    <%= f.date_select :repair_time, :order => [:day, :month, :year] %>
-    <br><br>
-    <%= f.label :repair_description %>
-    <%= f.text_field :repair_description %>
-    <br><br>
-    <%= f.submit "Schedule Repair" %>
-<% end %>
+<%= render partial: 'form' %>

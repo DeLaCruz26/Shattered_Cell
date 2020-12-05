@@ -1,4 +1,3 @@
 class Device < ApplicationRecord
-    belongs_to :user
-    belongs_to :repair
+    has_many :repairs
 end
