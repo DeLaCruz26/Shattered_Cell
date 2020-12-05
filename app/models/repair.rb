@@ -5,6 +5,11 @@ class Repair < ApplicationRecord
     has_many :users, through: :reviews
     accepts_nested_attributes_for :device
 
+    validates :repair_time, presence: true
+    validate :not_a_duplicate
+
+    scope :order_by_rating, -> {left_joins(:reviews).group(:id).order('avg(stars) desc')}
+
     def self.aplha
         order(:repair_time)
     end
