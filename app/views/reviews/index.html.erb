@@ -1,13 +1,13 @@
 <% if @repair %>
     <h1>Review for <%= @repair.repair_description %> - <%= @repair.device_name %></h1>
 <% else %>
-    <h1>All the Reviews</h1>
+    <h1>All Reviews</h1>
 <% end %>
 
 <ul>
     <% @reviews.each do |review| %>
         <li>
-            <%= @review.repair.repair_description %>: <%= link_to @review.title, review_path(review) %> - <%= @review.stars %>
+            <%= review.repair.repair_description %>: <%= link_to review.title, review_path(review) %> - <%= review.stars %> By: <%= review.user.username %>
         </li> <br>
     <% end %>
 </ul>

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy', as: 'logout'
+
+  get '/auth/:provider/callback' => 'sessions#create'
   
   resources :reviews
   resources :repairs  do 
