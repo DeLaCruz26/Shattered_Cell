@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy', as: 'logout'
 
-  get '/auth/:provider/callback' => 'sessions#create'
+  get '/auth/:provider/callback' => 'sessions#google_login'
   
   resources :reviews
   resources :repairs  do 

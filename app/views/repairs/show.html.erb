@@ -5,7 +5,7 @@
     <p><%= @repair.repair_description %></p>
 </div>
 
-<h3>Scheduled by: <%= link_to @repair.user, user_path(@user) %></h3>
+<h3>Scheduled by: <%= link_to @repair.user.username, user_path %></h3>
 
 <%= link_to "Edit #{@repair.repair_time}", edit_repair_path(@repair) if @repair.user == current_user %>
 

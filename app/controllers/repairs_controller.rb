@@ -24,6 +24,7 @@ class RepairsController < ApplicationController
     end
 
     def show
+        @repair = Repair.find(params[:id])
     end
 
     def edit 
@@ -45,6 +46,5 @@ class RepairsController < ApplicationController
 
     def set_repair
         @repair = Repair.find_by(params[:id])
-        redirect_to repairs_path if @repair 
     end
 end
