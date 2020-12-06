@@ -8,12 +8,8 @@ class SessionsController < ApplicationController
 
     def create
       if params[:provider] == 'google_oauth2'
-        @user = User.create_by_google_omniauth(auth)
+        @user = user.google_login(auth)
         session[:user_id] = @user.id
-        redirect_to user_path(@user)
-      elsif params[:provider] == 'facebook'
-        @user = User.create_by_facebook_omniauth(auth)
-        session[:user_id] = @user.id 
         redirect_to user_path(@user)
       else
         @user = User.find_by(username: params[:user][:username])
@@ -27,8 +23,13 @@ class SessionsController < ApplicationController
       end
     end
 
-    def omniauth 
-      @user = User.create_by_google_omniauth(auth)
+    def google_login
+      user_email = request.env['omniauth.auth']['info']['email']
+      user_name = request.env['omniauth.auth']['info']['name']
+      @user = User.find_or_create_by(email: user_email) do |user|
+        user.username = user_name
+        user.password = SecureRandom.hex
+      end
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     end
