@@ -20,7 +20,7 @@ class RepairsController < ApplicationController
     end
 
     def index
-        @repairs = Repair.order_by_rating.includes(:brand)
+        @repairs = Repair.order_by_rating.includes(:device)
     end
 
     def show

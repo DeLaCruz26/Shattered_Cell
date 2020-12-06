@@ -7,7 +7,7 @@
         <%= f.hidden_field :repair_id %>
     <% else %>
         <div>
-            <%= f.label :repair_id, Select an Repair %>
+            <%= f.label :repair_id, "Select an Repair" %>
             <%= f.collection_select :repair_id, Repair.aplha, :id, :time_and_device, include_blank: true %>
         </div>
     <% end %>

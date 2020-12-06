@@ -3,5 +3,5 @@ class Device < ApplicationRecord
     validates :name, presence: true, uniqueness: true
     validates :model, presence: true, uniqueness: true
 
-    scope :alpha -> {order(:name)}
+    scope :alpha, -> {order(:name)}
 end
