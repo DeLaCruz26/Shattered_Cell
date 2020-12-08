@@ -2,9 +2,7 @@
 
 <% @repairs.each do |r| %>
 
-    <p><%= link_to r.repair_time, repair_path(r.id) %> - <%= r.device.name %> <%= r.device.model%></p>
+    <p><%= link_to r.repair_time, repair_path(r.id), class: "link" %> - <%= r.device.name %> <%= r.device.model%></p>
     <p>Description: <%= r.repair_description %></p>
-<div>
-    <%= link_to "Write a review", new_repair_review_path(r.id) %>
-</div>    
+    <%= link_to "Write a review", new_repair_review_path(r.id), class: "link" %>
 <% end %>

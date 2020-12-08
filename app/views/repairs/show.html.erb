@@ -1,14 +1,14 @@
 <h1><%= @repair.repair_time %></h1>
 
-<h2><%= @repair.device_name %></h2>
+<h2><%= @repair.device_name %> <%= @repair.device_model %></h2>
 <div>
     <p><%= @repair.repair_description %></p>
 </div>
 
-<h3>Scheduled by: <%= link_to @repair.user.username, user_path %></h3>
+<h3>Scheduled by: <%= link_to @repair.user.username, user_path, class: "link" %></h3>
 
-<%= link_to "Edit #{@repair.repair_time}", edit_repair_path(@repair) if @repair.user == current_user %>
+<%= link_to "Edit #{@repair.repair_time}", edit_repair_path(@repair), class: "link" if @repair.user == current_user %>
 
 <br><br>
 
-<%= link_to "See all Reviews", repair_reviews_path(@repair) %>
+<%= link_to "See all Reviews", repair_reviews_path(@repair), class: "link" %>

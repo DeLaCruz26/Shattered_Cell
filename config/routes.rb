@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback' => 'sessions#google_login'
   
+  resources :devices
   resources :reviews
   resources :repairs  do 
     resources :reviews, only: [:new, :index]

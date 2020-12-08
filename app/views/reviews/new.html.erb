@@ -8,7 +8,7 @@
     <% else %>
         <div>
             <%= f.label :repair_id, "Select an Repair" %>
-            <%= f.collection_select :repair_id, Repair.aplha, :id, :time_and_device, include_blank: true %>
+            <%= f.collection_select :repair_id, Repair.aplha, :id, :time_and_device_model, include_blank: true %>
         </div>
     <% end %>
     <div>

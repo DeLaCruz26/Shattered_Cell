@@ -1,3 +1,5 @@
-<%= link_to "Login", login_path %> |
-<%= link_to "Signup", signup_path %> |
-<%= link_to "Signup With Google", '/auth/google_oauth2' %> 
+<div class="navbar">
+    <%= link_to "Login", login_path, :class => active_class('/login') %> 
+    <%= link_to "Signup", signup_path, :class => active_class('/signup') %> 
+    <%= link_to "Signup With Google", '/auth/google_oauth2' %> 
+</div>

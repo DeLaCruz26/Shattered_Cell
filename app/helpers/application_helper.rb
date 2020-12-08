@@ -6,4 +6,8 @@ module ApplicationHelper
             render partial: 'layouts/loggedout_links'
         end
     end
+
+    def active_class(link_path)
+        current_page?(link_path) ? "active" : ""
+    end
 end

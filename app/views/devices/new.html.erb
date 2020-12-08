@@ -1,0 +1,11 @@
+<h1>Add Device</h1>
+
+<%= form_for(@device) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br><br>
+    <%= f.label :model %>
+    <%= f.text_field :model %>
+    <br><br>
+    <%= f.submit "Add Device" %>
+<% end %>

@@ -30,7 +30,11 @@ class Repair < ApplicationRecord
         device.try(:name)
     end
 
-    def time_and_device
-        "#{repair_time} - #{device.try(:name)}"
+    def device_model
+        device.try(:model)
+    end
+
+    def time_and_device_model
+        "#{repair_time} - #{device.try(:name)} #{device.try(:model)}"
     end
 end

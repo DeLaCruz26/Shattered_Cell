@@ -7,7 +7,10 @@
 <ul>
     <% @reviews.each do |review| %>
         <li>
-            <%= review.repair.repair_description %>: <%= link_to review.title, review_path(review) %> - <%= review.stars %> By: <%= review.user.username %>
+            Title: <%= link_to review.title, review_path(review), class: "link" %>
+            <p>Description: <%= review.repair.repair_description %></p>
+            <p>Star Rating: <%= review.stars %></p> 
+            <p>By: <%= review.user.username %></p>
         </li> <br>
     <% end %>
 </ul>
